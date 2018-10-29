@@ -12,10 +12,14 @@ import Objects.User;
 import View.IView;
 import java.sql.Date;
 import java.util.List;
+import java.util.Observable;
+import java.util.Observer;
+
 import javafx.collections.ObservableList;
 import javafx.stage.Stage;
 
 public class Controller {
+
     private IView view;
     private ISQLModel model;
     private Stage primaryStage;
@@ -57,9 +61,15 @@ public class Controller {
 
     public void setView(IView view) {
         this.view = view;
+
     }
 
     public void setModel(ISQLModel model) {
         this.model = model;
     }
+
+    public void deleteUser(String username){
+        this.model.deleteUsers(username);
+    }
+
 }

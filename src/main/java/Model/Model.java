@@ -14,11 +14,14 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Observable;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import sample.Controller;
+import sun.rmi.runtime.Log;
 
-public class Model implements ISQLModel {
+public class Model extends Observable implements ISQLModel {
     private Controller controller;
     private sqlLiteJDBCDriverConnection driver = new sqlLiteJDBCDriverConnection();
 
@@ -111,56 +114,20 @@ public class Model implements ISQLModel {
     }
 
     public void deleteUsers(String userName) {
-        String sql = "DELETE FROM users WHERE username = ?";
+        String sql = "DELETE FROM users WHERE username = ? ";
 
-        try {
-            Connection connection = this.openConnection();
-            Throwable var4 = null;
-
-            try {
-                PreparedStatement pstmt = connection.prepareStatement(sql);
-                Throwable var6 = null;
-
-                try {
-                    pstmt.setString(1, userName);
-                    pstmt.executeUpdate();
-                } catch (Throwable var31) {
-                    var6 = var31;
-                    throw var31;
-                } finally {
-                    if (pstmt != null) {
-                        if (var6 != null) {
-                            try {
-                                pstmt.close();
-                            } catch (Throwable var30) {
-                                var6.addSuppressed(var30);
-                            }
-                        } else {
-                            pstmt.close();
-                        }
-                    }
-
-                }
-            } catch (Throwable var33) {
-                var4 = var33;
-                throw var33;
-            } finally {
-                if (connection != null) {
-                    if (var4 != null) {
-                        try {
-                            connection.close();
-                        } catch (Throwable var29) {
-                            var4.addSuppressed(var29);
-                        }
-                    } else {
-                        connection.close();
-                    }
-                }
-
-            }
-        } catch (SQLException var35) {
-            Logger.getInstance().log("FAILED REMOVE " + userName);
+        try{
+            Connection conn = openConnection();
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setString(1,userName);
+            stmt.executeUpdate();
+            Logger.getInstance().log("DELETED " + userName);
+            conn.close();
+        }catch (SQLException e){
+            e.printStackTrace();
+            Logger.getInstance().log("FAILED TO DELETE " + userName);
         }
+
 
     }
 

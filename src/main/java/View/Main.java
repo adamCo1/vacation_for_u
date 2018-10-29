@@ -19,7 +19,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
 
         FXMLLoader loader = new FXMLLoader();
-        Parent root = loader.load(getClass().getResource("sample.fxml").openStream());
+        Parent root = loader.load(getClass().getClassLoader().getResource("sample.fxml").openStream());
         View view = loader.getController();
         primaryStage.setTitle("Vacation4U");
         primaryStage.setScene(new Scene(root, 600, 500));

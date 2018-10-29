@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.View">
+   <children>
+      <Button id="submit" fx:id="submit" layoutX="476.0" layoutY="322.0" mnemonicParsing="false" onAction="#testHandleSubmitButton" text="Submit" />
+      <TextField id="username" fx:id="username" layoutX="69.0" layoutY="89.0" promptText="Username" />
+      <TextField id="password" fx:id="password" layoutX="69.0" layoutY="147.0" promptText="Password" />
+      <TextField id="date" fx:id="date" layoutX="69.0" layoutY="200.0" promptText="DD/MM/YYYY" />
+      <TextField id="fname" fx:id="fname" layoutX="344.0" layoutY="89.0" promptText="First name" />
+      <TextField id="lname" fx:id="lname" layoutX="344.0" layoutY="147.0" promptText="Last name" />
+      <TextField id="city" fx:id="city" layoutX="344.0" layoutY="200.0" promptText="City in Israel" />
+      <Label layoutX="293.0" layoutY="24.0" text="Register" />
+   </children>
+</AnchorPane>

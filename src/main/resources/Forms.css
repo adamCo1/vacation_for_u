@@ -1,0 +1,32 @@
+
+.root{
+    -fx-background-color:#DEB887;
+}
+
+.root > .AnchorPane{
+    -fx-background-color:#DEB887;
+}
+
+.text-field{
+    fx-background-color:#000000;
+
+}
+
+.text-field:focused{
+    -fx-background-color:#F0F8FF;
+}
+
+.button{
+    fx-background-color:#000000;
+    fx-fill-color:#000000;
+    fx-padding:10;
+}
+
+.button:hover{
+    fx-background-color:#F0F8FF;
+}
+
+.label{
+    fx-padding:5;
+    fx-font:16px "Aerial";
+}

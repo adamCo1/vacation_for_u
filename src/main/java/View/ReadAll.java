@@ -35,8 +35,8 @@ public class ReadAll {
 
     public void handleSearch() {
         this.searchFields = new User(this.username.getText(), this.password.getText(), this.firstname.getText(), this.lastname.getText(), this.city.getText(), this.birthdate.getText());
-       // this.showSearchResults(this.view.searchInDataBase(this.searchFields));
-        this.showSearchResults(this.view.getAllDataBase());
+        this.showSearchResults(this.view.searchInDataBase(this.searchFields));
+        //this.showSearchResults(this.view.getAllDataBase());
     }
 
     public void handleBack() {
